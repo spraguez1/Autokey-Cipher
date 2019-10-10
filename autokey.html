@@ -25,22 +25,25 @@
 
 <div class="plain">
 	<ul class="ioText" style="list-style-type:none;">
-		<li><label class="textLabel"><b>Plaintext</b></label><li>
+		<li><label class="textLabel" id="pLbl"><b>Plaintext</b></label><li>
 		<li><textarea class="textarea" id="pText"></textarea><li>
 	</ul>
 </div>
 <div class="tools">
 	<ul class="ioText" style="list-style-type:none;">
-		<li><label class="textLabel"><b>Keyword</b></label></li>
-		<li><input type="text" class="textarea" id="keyword"></li>
+		<li><label class="textLabel" id="kLbl"><b>Keyword</b></label></li>
+		<li><input type="text" autocomplete="off" class="textarea" id="keyword"></li>
 		<li><button type="button" class="solveBtns" id="encipher" onclick="encipher_Clicked()">↓↓ Encipher ↓↓</button>
-		<button button="button" class="solveBtns" id="decipher" onclick="decipher_Clicked()">↑↑ Decipher ↑↑</button></li>
+				<button button="button" class="solveBtns" id="decipher" onclick="decipher_Clicked()">↑↑ Decipher ↑↑</button></li>
+		<li><label class="textLabel" id="eLbl"><b>Extend By:</b></label></li>
+		<li><form><input type="radio" name="radio" class="radioBtns" id="radioPlain" checked>Plaintext</input>
+				<input type="radio" class="radioBtns" name="radio" id="radioCrypt">Ciphertext</input></form></li>
 		<li><button type="button" class="solveBtns" id="clear" onclick="clear_Clicked()">Clear</button></li>
 	</ul>
 </div>
 	<div class="crypt">
 	<ul class="ioText" style="list-style-type:none;">
-		<li><label class="textLabel"><b>Ciphertext</b></label></li>
+		<li><label class="textLabel" id="cLbl"><b>Ciphertext</b></label></li>
 		<li><textarea class="textarea" id="cText"></textarea></li>
 	</ul>
 </div>

@@ -24,50 +24,54 @@ button {
 button:hover {
 	color: #000000;
 	background-color: #0088A9;
-	outline:0px !important;
-  -webkit-appearance:none;
+	outline: 0px !important;
+  -webkit-appearance: none;
   box-shadow: none !important;
 }
 
 button:focus, button:active {
-	outline:0px !important;
-  -webkit-appearance:none;
+	outline: 0px !important;
+  -webkit-appearance: none;
   box-shadow: none !important;
-}
-
-input{
-	box-sizing: border-box;
 }
 
 body #pText, #cText {
 	background-color: white;
-	width: 70em;
-	height: 10em;
+	width: 60em;
+	height: 14em;
 }
 
-body .ioText{
+body .ioText {
 	padding: 5px;
 }
 
-body .ioText li{
+body .ioText li {
 	padding: 5px;
 }
 
-#keyword, #clear{
+body #keyword {
+	width: 17em;
+}
+
+body #clear {
 	width: 19em;
 }
 
-div{
-	padding: 15px;
-}
-
-body .textarea{
+body .textarea {
 	border-radius: 10px;
 	border: none;
+	box-sizing: border-box;
+	font-size: 15px;
+  font-weight: bold;
 }
 
-body .textarea:focus{
-	outline:0px !important;
-  -webkit-appearance:none;
+body .textarea:focus {
+	outline: 0px !important;
+  -webkit-appearance: none;
   box-shadow: none !important;
+}
+
+body #pLbl, #kLbl, #eLbl ,#cLbl {
+	font-size: 20px;
+	font-weight: bold;
 }

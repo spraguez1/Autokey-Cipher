@@ -36,14 +36,24 @@ function encipher_Clicked(){
 	var input = document.getElementById("pText").value.replace(/[^A-Za-z]+/g, "").toUpperCase();
 	var key = document.getElementById("keyword").value.replace(/[^A-Za-z]+/g, "").toUpperCase();
 	var keyword = key + input;
-	var cryptText = encipher(keyword, input);
-	cryptText = output(cryptText);
-	cText.value = cryptText;
+
+	if (document.getElementById("radioPlain").checked){
+		var cryptText = extendPlain_encipher(keyword, input);
+		cryptText = output(cryptText);
+		cText.value = cryptText;
+	}
+	else{
+		var cryptText = extendCrypt_encipher(key, input);
+		cryptText = output(cryptText);
+		cText.value = cryptText;
+	}
+
 }
 
-function encipher(keyword, plainText){
+function extendPlain_encipher(keyword, plainText){
 	var len = plainText.length;
-    var cryptText = "";
+  var cryptText = "";
+
 	for (var i = 0; i < len; i++){
 		var keyLetter = keyword.charCodeAt(i);
 		var pText = plainText.charCodeAt(i);
@@ -54,13 +64,37 @@ function encipher(keyword, plainText){
 	return cryptText;
 }
 
-/* Decipher functions by extending plain text */
+function extendCrypt_encipher(key, plainText){
+	var len = plainText.length;
+	var keyword = key + plainText;
+	var cText = extendPlain_encipher(keyword, plainText);
+	var extend = key + cText;
+	var cryptText = "";
+
+	//document.write("Key: " + extend + "<br>");
+	//document.write("Plaintext: " + plainText + "<br>");
+
+	for (var i = 0; i < len; i++){
+		var keyLetter = extend.charCodeAt(i);
+		var pText = plainText.charCodeAt(i);
+    var row = keyLetter - 65;
+    var col = pText - 65;
+		cryptText = cryptText + table[row][col];
+	}
+	return cryptText;
+}
+
+/* Decipher functions by extending by plain text or cipher text depending on the radio button selection */
 function decipher_Clicked(){
 	var cText = document.getElementById("cText").value.replace(/[^A-Za-z]+/g, "").toUpperCase();
 	var key = document.getElementById("keyword").value.replace(/[^A-Za-z]+/g, "").toUpperCase();
-	var plainText = decipher(key, cText);
-	plainText = output(plainText);
-	pText.value = plainText;
+
+	if (document.getElementById("radioPlain").checked){
+		var plainText = decipher(key, cText);
+		plainText = output(plainText);
+		pText.value = plainText.toLowerCase();
+	}
+
 }
 
 function decipher(key, cText){
